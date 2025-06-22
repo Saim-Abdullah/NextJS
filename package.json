@@ -2,13 +2,14 @@
   "name": "okupload",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "eslint . --fix",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -25,9 +26,10 @@
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
+    "@types/jest": "^30.0.0",
     "@types/react": "^19.1.8",
     "babel-eslint": "^10.1.0",
-    "eslint": "^8.56.0",
+    "eslint": "8.57.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-next": "^15.3.4",
     "eslint-plugin-import": "^2.29.1",

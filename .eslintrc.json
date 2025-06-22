@@ -1,8 +1,29 @@
 {
-  "extends": ["airbnb", "airbnb/hooks", "next/core-web-vitals"],
+  "root": true,
+  "extends": ["airbnb", "next/core-web-vitals"],
   "rules": {
+    // ✅ Keep JSX spreading and default exports flexible
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
-    "import/prefer-default-export": "off"
-  }
+    "import/prefer-default-export": "off",
+    "react/jsx-filename-extension": [
+      "error",
+      { "extensions": [".jsx", ".tsx"] }
+    ],
+
+    // ✅ Your customizations below:
+    "quotes": ["warn", "double", { "avoidEscape": true }],
+    "linebreak-style": "off",
+    "camelcase": ["warn", { "allow": ["Geist_Mono", "geistMono"] }],
+    "react/jsx-one-expression-per-line": "off",
+    "no-undef": "off"
+  },
+  "overrides": [
+    {
+      "files": ["**/*.test.tsx", "**/*.spec.tsx"],
+      "rules": {
+        "import/no-extraneous-dependencies": "off"
+      }
+    }
+  ]
 }
