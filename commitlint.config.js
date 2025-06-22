@@ -1,21 +1,21 @@
-export default {
+const commitlint = {
   extends: ["@commitlint/config-conventional"],
   rules: {
     "type-enum": [
       2,
       "always",
       [
-        "feat", // New feature
-        "fix", // Bug fix
-        "docs", // Documentation changes
-        "style", // Code style changes (formatting, etc)
-        "refactor", // Code refactoring
-        "test", // Adding or modifying tests
-        "chore", // Maintenance tasks
-        "ci", // CI configuration changes
-        "perf", // Performance improvements
-        "build", // Build system changes
-        "revert", // Reverting changes
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "test",
+        "chore",
+        "ci",
+        "perf",
+        "build",
+        "revert",
       ],
     ],
     "type-case": [2, "always", "lower"],
@@ -26,3 +26,5 @@ export default {
     "header-max-length": [2, "always", 72],
   },
 };
+
+export default commitlint;
