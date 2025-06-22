@@ -1,0 +1,43 @@
+name: CI and Code Quality
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    name: Lint Code
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - run: npm ci --legacy-peer-deps
+      - run: npm run lint
+
+  test:
+    runs-on: ubuntu-latest
+    name: Run Tests
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - run: npm ci --legacy-peer-deps
+      - run: npm test
+
+  commitlint:
+    runs-on: ubuntu-latest
+    name: Lint Commit Messages
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - run: npm ci
+      - run: npx commitlint --from=HEAD~1
